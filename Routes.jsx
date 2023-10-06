@@ -1,5 +1,13 @@
 import { Routes as ReactRouterRoutes, Route } from "react-router-dom";
+import {
+  TransitionGroup,
+  CSSTransition
+} from "react-transition-group";
+import { saveUserApiKey } from "/apis/user";
+import { useAuthenticatedFetch } from "/hooks";
 
+import { useEffect, useState } from "react";
+/**
 /**
  * File-based routing.
  * @desc File-based routing that uses React Router under the hood.
@@ -16,17 +24,35 @@ import { Routes as ReactRouterRoutes, Route } from "react-router-dom";
  */
 export default function Routes({ pages }) {
   const routes = useRoutes(pages);
+  const fetch = useAuthenticatedFetch();
+  const [userInfo, setUserInfo] = useState();
+  useEffect(() => {
+    (async () => {
+      const getUserInfo = await saveUserApiKey({ fetch });
+      console.log(getUserInfo, "getUserInformatıon")
+      setUserInfo(getUserInfo);
+    })();
+  }, []);
+
   const routeComponents = routes.map(({ path, component: Component }) => (
-    <Route key={path} path={path} element={<Component />} />
+    <Route key={path} path={path} element={<Component  userInfo={userInfo} setUserInfo={setUserInfo} />} />
   ));
 
   const NotFound = routes.find(({ path }) => path === "/notFound").component;
 
   return (
+    <TransitionGroup>
+    <CSSTransition
+        key={location.pathname}
+        classNames="slide"
+       timeout={300}
+            >
     <ReactRouterRoutes>
       {routeComponents}
       <Route path="*" element={<NotFound />} />
     </ReactRouterRoutes>
+    </CSSTransition>
+    </TransitionGroup>
   );
 }
 

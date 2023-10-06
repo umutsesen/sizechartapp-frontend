@@ -1,0 +1,132 @@
+.button {
+
+}
+
+.hoverInactiveButton {
+    &:hover {
+        background-color: white !important;
+        color: black !important;
+    }
+}
+
+
+
+
+
+
+
+
+// polaris mudahale
+
+.Polaris-LegacyCard {
+    border-radius: 0px !important;
+    border: 1px solid black;
+}
+.Polaris-Tabs__Tab--selected .Polaris-Tabs__Title::before {
+    background-color: black !important;
+}
+.Polaris-Select__Backdrop {
+    border-radius: 0 !important;
+    border: 1px solid black !important;
+}
+select:focus-visible {
+   outline: 1px solid black !important;
+}
+.Polaris-Select__Input:focus-visible ~ .Polaris-Select__Backdrop::after {
+    border-radius: 0px !important;
+    box-shadow: 0 0 0 0.125rem black !important;
+   
+}
+.Polaris-TextField__Backdrop {
+    border-radius: 0px !important;
+    border: 1px solid black !important;
+}
+.Polaris-TextField__Backdrop::after {
+    border-radius: 0px !important;
+   /*  box-shadow: 0 0 0 0.125rem black !important; */
+}
+.Polaris-Checkbox__Backdrop::before {
+    background-color: black !important;
+    border-radius: 0 !important;
+}
+.Polaris-Checkbox__Backdrop {
+    border-radius: 0 !important;
+}
+.Polaris-ResourceItem--selected {
+    background-color: rgb(246 246 246) !important;
+}
+.Polaris-Button {
+    border-radius: 0 !important;
+    border: 1px solid black !important;
+}
+.Polaris-Button--primary {
+    --pc-button-color: black !important;
+}
+.Polaris-RadioButton__Backdrop::before {
+    background-color: black !important;
+}
+.Polaris-Modal-Dialog__Modal {
+    border-radius: 0 !important;
+    border: 1px solid black;
+}
+.Polaris-Breadcrumbs__Breadcrumb {
+    background-color: black !important;
+    border-radius: 0 !important;
+}
+.Polaris-Breadcrumbs__Icon svg {
+    fill: white !important;
+}
+.Polaris-Button--disabled {
+    border: 1px solid rgba(0, 0, 0, 0.066) !important;
+
+}
+.Polaris-RadioButton__Input:checked + .Polaris-RadioButton__Backdrop {
+    border-color: black !important;
+}
+.Polaris-Button--primary:hover, .Polaris-Button--destructive:hover, .Polaris-Button--primaryPlain:hover {
+    background-color: rgba(0, 0, 0, 0.731) !important;
+}
+.Polaris-DatePicker__Day:hover {
+    background-color: black !important;
+}
+.Polaris-DatePicker__Day--selected {
+    background-color: black !important;
+}
+.Polaris-DatePicker__Day--inRange {
+    background-color: rgba(0, 0, 0, 0.571) !important;
+    color: white !important;
+}
+.Polaris-RangeSlider-SingleThumb__Input {
+    --pc-single-thumb-progress-lower: black !important;
+}
+.Polaris-ResourceItem__ItemWrapper {
+    border-radius: 0 !important;
+}
+.Polaris-Button--plain {
+    margin: unset !important;
+}
+.Polaris-Button--primary:active, .Polaris-Button--destructive:active, .Polaris-Button--primaryPlain:active {
+    background-color: #000000cb !important;
+}
+
+  input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background: #000000;
+    border-radius: 0%;
+  
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+    border: 0;
+  }
+  
+  input[type='range']::-moz-range-thumb {
+    background: #000000;
+    border-radius: 0%;
+
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+    border: 0;
+  }
+  

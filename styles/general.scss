@@ -1,0 +1,345 @@
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone-small {
+    @media only screen and (max-width: 21.3125em) {
+      @content;
+    } //600px
+  }
+  @if $breakpoint == phone {
+    @media only screen and (max-width: 37.5em) {
+      @content;
+    } //600px
+  }
+  @if $breakpoint == tab-port-small {
+    @media only screen and (max-width: 45.68em) {
+      @content;
+    } //731px
+  }
+  @if $breakpoint == tab-port {
+    @media only screen and (max-width: 57em) {
+      @content;
+    } //912px
+  }
+  @if $breakpoint == tab-land-small {
+    @media only screen and (max-width: 62.25em) {
+      @content;
+    } //1000px
+  }
+  @if $breakpoint == tab-land-large {
+    @media only screen and (max-width: 65.625em) {
+      @content;
+    } //1200px
+  }
+  @if $breakpoint == small-desktop {
+    @media only screen and (max-width: 82em) {
+      @content;
+    } //1300
+  }
+  @if $breakpoint == haha-desktop {
+    @media only screen and (max-width: 90em) {
+      @content;
+    } //1300
+  }
+  @if $breakpoint == big-desktop {
+    @media only screen and (min-width: 120em) {
+      @content;
+    } //1800
+  }
+  @if $breakpoint == too-big-desktop {
+    @media only screen and (min-width: 150em) {
+      @content;
+    } //2400
+  }
+}
+
+.topnavbar {
+  padding-top: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 1rem;
+  display: flex;
+  position: relative;
+  justify-content: center;
+
+  @include respond(phone) {
+    min-height: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  &__icon {
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    left: 25px;
+    top: 25px;
+    z-index: 4;
+    @include respond(phone) {
+      display: block;
+    }
+  }
+  &__tabs {
+    display: flex;
+    position: relative;
+    background-color: #fff;
+    box-shadow: 0 0 1px 0 rgba(0, 128, 96, 0.15),
+      0 6px 12px 0 rgba(0, 128, 96, 0.15);
+    padding: 0.25rem;
+    border-radius: 10px;
+
+    * {
+      z-index: 2;
+    }
+    @include respond(phone) {
+      flex-direction: column;
+      align-items: center;
+      display: none;
+      width: 100%;
+    }
+    &--open {
+      @include respond(phone) {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+      }
+    }
+  }
+  &__tab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 10rem;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: color 0.15s ease-in;
+
+    @include respond(tab-port) {
+      width: 8rem;
+      font-size: 0.7rem;
+    }
+
+    @include respond(tab-port-small) {
+      width: 6rem;
+      font-size: 0.7rem;
+    }
+
+    &--radio {
+      display: none;
+      &:checked {
+        & + label {
+          color: rgba(0, 128, 96, 1);
+          & > .notification {
+            background-color: rgba(0, 128, 96, 1);
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}
+
+.linkDefault {
+  text-decoration: none;
+  color: inherit;
+}
+
+input[id="radio-1"] {
+  &:checked {
+    & ~ .glider {
+      transform: translateX(0);
+    }
+  }
+}
+
+input[id="radio-2"] {
+  &:checked {
+    & ~ .glider {
+      transform: translateX(100%);
+    }
+  }
+}
+
+input[id="radio-3"] {
+  &:checked {
+    & ~ .glider {
+      transform: translateX(200%);
+    }
+  }
+}
+input[id="radio-4"] {
+  &:checked {
+    & ~ .glider {
+      transform: translateX(300%);
+    }
+  }
+}
+input[id="radio-5"] {
+  &:checked {
+    & ~ .glider {
+      transform: translateX(400%);
+    }
+  }
+}
+input[id="radio-6"] {
+  &:checked {
+    & ~ .glider {
+      transform: translateX(500%);
+    }
+  }
+}
+.glider {
+  position: absolute;
+  display: flex;
+  height: 40px;
+  width: 10rem;
+  background-color: rgba(0, 128, 96, 0.15);
+  z-index: 1;
+  border-radius: 10px;
+  transition: 0.25s ease-out;
+  @include respond(tab-port) {
+    display: none;
+  }
+}
+
+/////// another page
+
+.billing {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2rem;
+  @include respond(phone) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 1.25rem;
+  }
+  &__card {
+    box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.15), 0 6px 12px 0 rgba(0, 0, 0, 0.15);
+   
+  }
+}
+#planTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  padding-top: 1rem;
+  padding-left: 2rem;
+  @include respond(tab-port) {
+    padding: 1rem 0;
+    text-align: center;
+  }
+}
+
+.productsPage {
+  &__title {
+    font-weight: 500;
+    font-size: 1.6rem;
+    @include respond(tab-port) {
+      text-align: center;
+      //width: 100%;
+      padding-left: 1rem;
+    }
+  }
+  &__text {
+    font-size: 1rem;
+    @include respond(tab-port) {
+      padding: 0 1rem;
+      font-size: 0.8rem;
+    }
+  }
+}
+
+.tutorialBox {
+  padding: 1.25rem;
+  box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.15), 0 6px 12px 0 rgba(0, 0, 0, 0.15);
+  border: 1px solid black;
+  font-weight: 700;
+  &__wrapper {
+    position: absolute;
+    background: white;
+
+    z-index: 99;
+    &--0 {
+      right: 16rem;
+    }
+    &--1 {
+      top: 4rem;
+      right: 45rem;
+    }
+    &--2 {
+      top: 4rem;
+      right: 16rem;
+    }
+    &--3 {
+      right: 5rem;
+    }
+    &--4 {
+      bottom: 20rem;
+      right: 15rem;
+    }
+    &--5 {
+      right: 5rem;
+      left: 5rem;
+      top: 7.5%;
+    }
+    &--6 {
+      right: 15rem;
+    }
+  }
+}
+.r104f42s700-beta12 {
+  height: unset !important;
+}
+
+.my-node-enter {
+  opacity: 0;
+}
+.my-node-enter-active {
+  opacity: 1;
+  transition: opacity 200ms;
+}
+.my-node-exit {
+  opacity: 1;
+}
+.my-node-exit-active {
+  opacity: 0;
+  transition: opacity 200ms;
+}
+
+.resource__link {
+  color: #686666;
+  text-decoration: none;
+}
+
+.planSpace {
+  display: none;
+  margin-top: 2rem;
+  @include respond(phone) {
+    display: block;
+  }
+}
+
+@mixin absCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#loadingAnimation {
+  width: 350px;
+  position: absolute;
+  z-index: 99999;
+  @include absCenter();
+}
+
+.pointer {
+  cursor: pointer;
+}
+.defaultcursor {
+  cursor: default;
+}
