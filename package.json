@@ -42,7 +42,6 @@
     "jspdf": "^2.5.1",
     "jspdf-autotable": "^3.6.0",
     "lottie-react": "^2.4.0",
-    "react-data-grid": "^7.0.0-beta.40",
     "react-toggle-button": "^2.2.0",
     "react-transition-group": "^4.4.5",
     "sass": "^1.69.0",
