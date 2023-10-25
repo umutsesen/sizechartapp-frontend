@@ -78,7 +78,7 @@ const Tab3Page = ({ userInfo }) => {
       }
      /*  console.log(userInfo.storeData.domain, "userInfo.storeData.domain") */
       setShopOrigin(userInfo.storeData.domain);
-     /*  await saveUserProducts({ fetch }); */
+      await saveUserProducts({ fetch });
     
     })();
   }, [userInfo]);
