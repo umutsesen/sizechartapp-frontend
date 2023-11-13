@@ -1082,17 +1082,11 @@ const accountInfo = ({
         "XXXXXXXXXXXXXXXXXXXXX"
       );
       //resource picker ve id temizlencek, collections da da oyle. yoksa ayinisi pert
-      const removeDuplicates = [
-        ...new Set([...productsResourcePicker, ...getProductId]),
-      ];
+      const removeDuplicates = [...productsResourcePicker, ...getProductId]
       console.log("asdasdasdasd", removeDuplicates);
 
-      const removeSelectedDuplicates = [
-        ...new Set([...selectedOptions, ...getProductId]),
-      ];
-      const removeTitleDuplicates = [
-        ...new Set([...productsTitlesAndId, ...getTitle]),
-      ];
+      const removeSelectedDuplicates = [...selectedOptions, ...getProductId]
+      const removeTitleDuplicates = [...productsTitlesAndId, ...getTitle]
       setProductsResourcePicker(removeDuplicates);
       setProductsTitlesAndId(removeTitleDuplicates);
 
