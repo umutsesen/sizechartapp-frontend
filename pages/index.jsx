@@ -246,7 +246,7 @@ const Tab3Page = ({ userInfo }) => {
   autoComplete="off"
   placeholder={t("DashboardPage.2")}
   type="text"
-
+  prefix={<Icon source={SearchMinor} color="base" />}
   value={searchQuery}
   onChange={handleSearchChange}
 />
@@ -318,9 +318,7 @@ const Tab3Page = ({ userInfo }) => {
                       // persistActions
                       onClick={() => {
                         goChartEdit(item);
-                        if (!hasCompletedTutorial) {
-                          updateTutorialStep(3);
-                        }
+                       
                       }}
                     >
                       <h3>{name}</h3>
