@@ -157,6 +157,7 @@ const Tab3Page = ({ userInfo }) => {
     [isDeleteModalOpen]
   );
   const filteredItems = items.filter(item => item.name.toLowerCase().includes(searchQuery.toLowerCase()));
+  console.log(filteredItems)
 
   // Hepsi seçildiğinde alınacak aksiyonlar
   const promotedBulkActions = [
@@ -241,11 +242,11 @@ const Tab3Page = ({ userInfo }) => {
         <Layout>
           <Layout.Section>
             <LegacyCard sectioned>
-            <TextField
+            <input
   autoComplete="off"
   placeholder={t("DashboardPage.2")}
   type="text"
-  prefix={<Icon source={SearchMinor} color="base" />}
+
   value={searchQuery}
   onChange={handleSearchChange}
 />

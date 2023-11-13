@@ -367,7 +367,7 @@ const ChartEdit = ({
               <SizeMeButton className="hoverInactiveButton">
                 {t("SizechartEditPage.15")}:{" "}
                 <span style={{ textTransform: "capitalize" }}>
-                  {chart.gender === "Man"
+                  {chart.gender === "man"
                     ? t("SizechartEditPage.25")
                     : t("SizechartEditPage.26")}{" "}
                 </span>
