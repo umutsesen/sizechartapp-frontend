@@ -54,6 +54,9 @@ import "../styles/components.scss";
 
 const Tab3Page = ({ userInfo }) => {
   const { t } = useTranslation();
+  const [searchQuery, setSearchQuery] = useState('');
+  const handleSearchChange = useCallback((newValue) => setSearchQuery(newValue), []);
+
   console.log(userInfo, "3123")
   const fetch = useAuthenticatedFetch();
   const [shopOrigin, setShopOrigin] = useState();
@@ -153,6 +156,7 @@ const Tab3Page = ({ userInfo }) => {
     () => setIsDeleteModalOpen(!isDeleteModalOpen),
     [isDeleteModalOpen]
   );
+  const filteredItems = items.filter(item => item.name.toLowerCase().includes(searchQuery.toLowerCase()));
 
   // Hepsi seçildiğinde alınacak aksiyonlar
   const promotedBulkActions = [
@@ -237,18 +241,21 @@ const Tab3Page = ({ userInfo }) => {
         <Layout>
           <Layout.Section>
             <LegacyCard sectioned>
-              <TextField
-                autoComplete="off"
-                placeholder={t("DashboardPage.2")}
-                type="text"
-                prefix={<Icon source={SearchMinor} color="base" />}
-              />
+            <TextField
+  autoComplete="off"
+  placeholder={t("DashboardPage.2")}
+  type="text"
+  prefix={<Icon source={SearchMinor} color="base" />}
+  value={searchQuery}
+  onChange={handleSearchChange}
+/>
+
               <ResourceList
                 resourceName={{
                   singular: t("DashboardPage.6"),
                   plural: t("DashboardPage.7"),
                 }}
-                items={items && items}
+                items={items && filteredItems}
                 selectedItems={selectedItems}
                 onSelectionChange={setSelectedItems}
                 loading={loading}

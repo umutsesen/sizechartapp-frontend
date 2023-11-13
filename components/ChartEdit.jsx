@@ -77,6 +77,10 @@ const ChartEdit = ({
 
   const sizeRangeList = [
     {
+      label: "3XL",
+      checked: sizeRange.includes("3XL"),
+    },
+    {
       label: "XXL",
       checked: sizeRange.includes("XXL"),
     },
