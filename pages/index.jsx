@@ -242,7 +242,7 @@ const Tab3Page = ({ userInfo }) => {
         <Layout>
           <Layout.Section>
             <LegacyCard sectioned>
-            <input
+            <TextField
   autoComplete="off"
   placeholder={t("DashboardPage.2")}
   type="text"
