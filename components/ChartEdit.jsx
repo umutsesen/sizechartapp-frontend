@@ -332,7 +332,7 @@ const ChartEdit = ({
                 value={chartName}
                 onChange={handleChartNameChange}
                 autoComplete="off"
-                maxLength={15}
+              
               />
 
               <LegacyStack>
