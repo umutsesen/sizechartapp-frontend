@@ -28,7 +28,7 @@ import { useTranslation } from "react-i18next";
 
 const accountInfo = ({
   fetch,
-  shopOrigin,
+  shopOrigin = "lesbenjamins.com",
   setDefaultInfo,
   chartId,
   setHasFormChanged,

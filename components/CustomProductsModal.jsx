@@ -14,6 +14,7 @@ const CustomProductsModal = ({
   toggleActive,
   amount,
   products,
+  shopOrigin,
   t,
 }) => {
   return (

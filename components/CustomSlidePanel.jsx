@@ -348,7 +348,7 @@ const CustomSlidePanel = ({
           <TextField
             label="Name"
             type="text"
-            maxLength={25}
+    
             value={name}
             onChange={(e) => setName(e)}
             helpText="Name for table"
