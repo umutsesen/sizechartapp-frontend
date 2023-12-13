@@ -23,6 +23,7 @@ import { useEffect, useState } from "react";
  * @return {Routes} `<Routes/>` from React Router, with a `<Route/>` for each file in `pages`
  */
 export default function Routes({ pages }) {
+  console.log(5)
   const routes = useRoutes(pages);
   const fetch = useAuthenticatedFetch();
   const [userInfo, setUserInfo] = useState();

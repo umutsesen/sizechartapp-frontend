@@ -280,7 +280,7 @@ const ChartEdit = ({
                 res.updatedChart.status !== chart.status &&
                   res.updatedChart.status
               );
-              console.log(updatedChartStatus, "3333");
+              console.log(updatedChartStatus, "32333");
               setChartStatus(
                 res.updatedChart.status === "Published" ? true : false
               );
