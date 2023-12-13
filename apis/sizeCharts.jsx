@@ -1,3 +1,10 @@
+class CustomError extends Error {
+  constructor(message, details) {
+    super(message); // Pass the message to the Error constructor
+    this.details = details; // Additional details
+  }
+}
+
 export const getDefaultInformation = async ({ fetch }, sizeChartId) => {
   try {
     console.log("352432");
@@ -146,7 +153,8 @@ export const updateSizeChart = async (
   sizes,
   status,
   chartId,
-  defaultInfo
+  defaultInfo,
+  selectedItems
 ) => {
   try {
     const response = await fetch("/api/sizeChart/updateSizeChart", {
@@ -155,12 +163,15 @@ export const updateSizeChart = async (
         Accept: "application/json, text/plain, */*",
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ chartName, sizes, status, chartId, defaultInfo }),
+      body: JSON.stringify({ chartName, sizes, status, chartId, defaultInfo, selectedItems }),
     });
 
     const data = await response.json();
-    console.log(data);
-    if (!response.ok) throw new Error(data.error);
+    console.log(data);  
+    if (!response.ok){
+      console.log(data, "dataError")
+      throw new CustomError(data.error, data.details);
+    }
     return data;
   } catch (err) {
     throw err;

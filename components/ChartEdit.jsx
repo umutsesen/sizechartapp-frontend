@@ -22,13 +22,16 @@ import { capitalizeFirtsLetter } from "../variables/constants";
 import { useTranslation } from "react-i18next";
 
 import SizeMeButton from './sizemeComponents/Button';
-
+import CustomErrorProducts from './CustomErrorProducts';
 const ChartEdit = ({
   setIsChartEdit,
   chart,
   shopOrigin,
   fetch,
 }) => {
+  const [errorProductsModal, setErrorProductsModal] = useState(false);
+  const [sorunluProducts, setSorunluProducts] = useState([]);
+  const [selectedItems, setSelectedItems] = useState([]);
   const { t } = useTranslation();
   // sizeRange ve measurementRange tablodan çıkarılıyor
   const [sizeRange, setSizeRange] = useState(
@@ -43,7 +46,6 @@ const ChartEdit = ({
 
   const [table, setTable] = useState(chart.sizes);
 
-  const [loading, setLoading] = useState(false);
   const [defaultInfo, setDefaultInfo] = useState([]);
 
   const gridDataRef = useRef();
@@ -265,7 +267,8 @@ const ChartEdit = ({
                 values,
                 status,
                 chart._id,
-                defaultInfo
+                defaultInfo,
+                selectedItems
               );
               console.log(res);
               setSuccessOrError({
@@ -286,10 +289,15 @@ const ChartEdit = ({
             
             } catch (err) {
               console.log(err);
+          
+              console.log(err.details, "errrrr")
+              
               setSuccessOrError({
-                message: t(`Errors.${err.message}`),
+                message: t(`${err.error}`),
                 success: false,
               });
+              setSorunluProducts(err.details); 
+             setErrorProductsModal(true) 
             }
           },
         }}
@@ -449,13 +457,16 @@ const ChartEdit = ({
               chartId={chart._id}
               setHasFormChanged={setHasFormChanged}
                         shopOrigin={shopOrigin}
-              
+              selectedItems={selectedItems}
+              setSelectedItems={setSelectedItems}
             />
           </Layout.Section>
         </Layout>
         <br></br>
         {toastMarkup}
       </Page>
+      <CustomErrorProducts  t={t}  active={errorProductsModal} toggleActive={setErrorProductsModal} 
+          products={sorunluProducts}/>
       <Modal
         titleHidden
         // activator={deleteSizeChartModalActivator}

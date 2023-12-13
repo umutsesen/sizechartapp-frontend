@@ -32,8 +32,10 @@ const accountInfo = ({
   setDefaultInfo,
   chartId,
   setHasFormChanged,
+  selectedItems, setSelectedItems
 }) => {
   ///// toast
+
   const { t } = useTranslation();
   const [toastActive, toastSetActive] = useState(false);
   const toggleActive = useCallback(
@@ -87,7 +89,9 @@ const accountInfo = ({
 
   //select
   const [selectedChoiceTag, setSelectedChoiceTag] = useState([]);
-
+useEffect(() => {
+  setSelectedItems(products.map((product) => product.id));
+}, [products])
   useEffect(() => {
     (async () => {
       getProductTags();
@@ -1286,6 +1290,8 @@ const accountInfo = ({
           products={products}
           shopOrigin={shopOrigin}
           t={t}
+          setSelectedItems={setSelectedItems}
+          selectedItems={selectedItems}
         />
       </Layout>
     </>

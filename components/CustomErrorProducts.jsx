@@ -9,30 +9,19 @@ import {
   Thumbnail,
 } from "@shopify/polaris";
 
-const CustomProductsModal = ({
+const CustomErrorProducts = ({
   active,
   toggleActive,
-  amount,
   products,
-  shopOrigin,
   t,
-  setSelectedItems,
-  selectedItems
 }) => {
-  console.log(products)
-  const promotedBulkActions = [
-    {
-      content: 'Ürünleri Kaydet',
-      onAction: () => console.log('Todo: implement bulk edit'),
-    },
-  ];
 
   return (
    
       <Modal
         open={active}
-        onClose={toggleActive}
-        title={` ${amount} ${t("productMatchPage.24")}`}
+        onClose={() => toggleActive(false)}
+        title={` ${products.length} Çakışan Ürün`}
       >
         <Modal.Section>
           <LegacyCard>
@@ -44,10 +33,6 @@ const CustomProductsModal = ({
                 }}
                 
                 items={products}
-                selectedItems={selectedItems}
-                onSelectionChange={setSelectedItems}
-                promotedBulkActions={promotedBulkActions}
-             /*    bulkActions={bulkActions} */
                 renderItem={(item) => {
                   const { title, id, image } = item;
                   const media = (
@@ -60,19 +45,6 @@ const CustomProductsModal = ({
                       alt={title}
                     />
                   );
-/* 
-                  const shortcutActions = [
-                    {
-                      content: t("productMatchPage.26"),
-                      accessibilityLabel: t("productMatchPage.26"),
-                      url: `https://${shopOrigin}/products/${title.replace(
-                        /\s+/g,
-                        "-"
-                      )}`,
-                      external: true,
-                    },
-                  ]; */
-
                   return (
                     <ResourceItem
                       id={id}
@@ -98,4 +70,4 @@ const CustomProductsModal = ({
    
   );
 };
-export default CustomProductsModal;
+export default CustomErrorProducts;
