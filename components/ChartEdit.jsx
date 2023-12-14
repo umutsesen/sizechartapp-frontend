@@ -293,7 +293,7 @@ const ChartEdit = ({
               console.log("err111rrr")
               
               setSuccessOrError({
-                message: err.error,
+                message: `Başka bir beden tablosuyla çakışan ürünler bulundu, lütfen bu ürünleri seçiminizden çıkarınız.`,
                 success: false,
               });
               setSorunluProducts(err.details); 
