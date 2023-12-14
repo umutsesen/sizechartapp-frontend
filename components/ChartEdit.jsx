@@ -290,10 +290,10 @@ const ChartEdit = ({
             } catch (err) {
               console.log(err);
           
-              console.log(err.details, "errrrr")
+              console.log("err111rrr")
               
               setSuccessOrError({
-                message: `${err.error}`,
+                message: err.error,
                 success: false,
               });
               setSorunluProducts(err.details); 
