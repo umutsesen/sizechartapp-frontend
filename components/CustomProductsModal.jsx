@@ -19,13 +19,7 @@ const CustomProductsModal = ({
   setSelectedItems,
   selectedItems
 }) => {
-  console.log(products)
-  const promotedBulkActions = [
-    {
-      content: 'Ürünleri Kaydet',
-      onAction: () => console.log('Todo: implement bulk edit'),
-    },
-  ];
+
 
   return (
    
@@ -46,7 +40,7 @@ const CustomProductsModal = ({
                 items={products}
                 selectedItems={selectedItems}
                 onSelectionChange={setSelectedItems}
-                promotedBulkActions={promotedBulkActions}
+            /*     promotedBulkActions={promotedBulkActions} */
              /*    bulkActions={bulkActions} */
                 renderItem={(item) => {
                   const { title, id, image } = item;

@@ -1254,7 +1254,7 @@ useEffect(() => {
                 {choice === "normal" ? (
                   <div style={{ marginBottom: "2rem"}}>
                     <LinkButton onClick={toggleProductModalActive}>
-                      {productAmount} {t("productMatchPage.18")}
+                      {selectedItems.length} {t("productMatchPage.18")}
                     </LinkButton>
                   </div>
                 ) : null}
@@ -1262,7 +1262,7 @@ useEffect(() => {
               {choice === "allproducts" ? (
                  <div style={{ marginBottom: "2rem"}}>
                 <LinkButton onClick={toggleProductModalActive}>
-                  {productAmount} {t("productMatchPage.18")}
+                  {selectedItems.length} {t("productMatchPage.18")}
                 </LinkButton>
                 </div>
               ) : loading === true ? (
