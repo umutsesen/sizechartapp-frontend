@@ -53,8 +53,7 @@ const CustomErrorProducts = ({
                       accessibilityLabel={`${t(
                         "productMatchPage.22"
                       )} ${title}`}
-                 /*      shortcutActions={shortcutActions} */
-                      persistActions
+         
                     >
                   
                         <Text variant="bodyLg" as="p"  fontWeight="semibold">{title}</Text>
