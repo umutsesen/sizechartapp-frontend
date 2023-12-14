@@ -293,7 +293,7 @@ const ChartEdit = ({
               console.log(err.details, "errrrr")
               
               setSuccessOrError({
-                message: t(`${err.error}`),
+                message: `${err.error}`,
                 success: false,
               });
               setSorunluProducts(err.details); 
