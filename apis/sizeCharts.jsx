@@ -177,3 +177,44 @@ export const updateSizeChart = async (
     throw err;
   }
 };
+
+export const saveText = async (fetch, text) => {
+  try {
+    const response = await fetch("/api/sizeChart/saveText", {
+      method: "POST",
+      headers: {
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ text }),
+    });
+
+    const data = await response.json();
+    console.log(data);  
+    if (!response.ok){
+      console.log(data, "dataError")
+      throw new CustomError(data.error, data.details);
+    }
+    return data;
+  } catch (err) {
+    throw err;
+  }
+
+}
+
+export const getText = async (fetch, text) => {
+  try {
+    const response = await fetch("/api/sizeChart/getText");
+
+    const data = await response.json();
+    console.log(data);  
+    if (!response.ok){
+      console.log(data, "dataError")
+      throw new CustomError(data.error, data.details);
+    }
+    return data;
+  } catch (err) {
+    throw err;
+  }
+
+}

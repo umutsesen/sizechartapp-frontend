@@ -2,7 +2,7 @@ import React, { useState, useCallback } from "react";
 import { Tabs, LegacyCard} from "@shopify/polaris";
 import { modalProductCards, parseTable } from "../variables/constants";
 import ImportSizeTable from "./ImportSizeTable";
-
+import EditTextModal from "./editTextModal";
 const CustomModal = ({
   setModalIsOpen,
   setOpenSlidePanel,
@@ -34,6 +34,12 @@ const CustomModal = ({
     {     id: "import-size-chart",
     content: t("DashboardPage.23"),
     panelID: "import-size-chart-1",
+  },
+  {
+    id: "Select-product-2",
+    content: 'Edit Text In Size Chart Popup',
+    panelID: "Select-product-type-2",
+
   }
   ];
 
@@ -88,6 +94,9 @@ const CustomModal = ({
         t={t}
       />
     </div>,
+    <div>
+      <EditTextModal   fetch={fetch}/>
+    </div>
   ];
 
   return (

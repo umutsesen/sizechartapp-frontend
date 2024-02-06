@@ -466,7 +466,8 @@ const ChartEdit = ({
         {toastMarkup}
       </Page>
       <CustomErrorProducts  t={t}  active={errorProductsModal} toggleActive={setErrorProductsModal} 
-          products={sorunluProducts}/>
+          products={sorunluProducts}    setSelectedItems={setSelectedItems}
+          selectedItems={selectedItems}/>
       <Modal
         titleHidden
         // activator={deleteSizeChartModalActivator}

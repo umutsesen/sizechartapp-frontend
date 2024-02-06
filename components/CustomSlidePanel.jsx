@@ -281,6 +281,15 @@ const CustomSlidePanel = ({
             <Text as="h" fontWeight="bold" >{t("DashboardPage.34")}</Text>
             <Text variation="subdued">{t("DashboardPage.35")}</Text>
           </VerticalStack>
+          <HorizontalStack gap="4">
+          <Button
+             secondary
+              onClick={() => {
+                setOpenSlidePanel(false);
+              }}
+            >
+              {t("DashboardPage.40")}
+            </Button>
           <Button
             primary
             onClick={() => {
@@ -291,6 +300,7 @@ const CustomSlidePanel = ({
           >
             {t("DashboardPage.36")}
           </Button>
+          </HorizontalStack >
         </div>
       </div>
       <div className="slidePanel-content">
@@ -372,19 +382,6 @@ const CustomSlidePanel = ({
             type="file"
             onChange={handleFileInputChange}
           />
-          <VerticalStack>
-            <Button
-              primary
-              onClick={() => {
-                setOpenSlidePanel(false);
-              }}
-            >
-              {t("DashboardPage.40")}
-            </Button>
-         {/*    <Button onClick={() => hiddenFileInput.current.click()}>
-              {t("DashboardPage.41")}
-            </Button> */}
-          </VerticalStack>
         </VerticalStack>
       </div>
     </div>

@@ -116,7 +116,7 @@ const ImportSizeTable = ({
     const tables = [];
     let sizes = [];
     json.forEach((item, index) => {
-      const { XXS, XS, S, M, L, XL, XXL } = item;
+      const { XXS, XS, S, M, L, XL, XXL, XXXL } = item;
       if (item.GENDER !== undefined) {
         sizes = [];
         delete item.XXS;
@@ -126,6 +126,7 @@ const ImportSizeTable = ({
         delete item.L;
         delete item.XL;
         delete item.XXL;
+        delete item.XXXL;
 
         if (XXS) {
           let obj = { size: "XXS" };
@@ -162,6 +163,11 @@ const ImportSizeTable = ({
           obj[item["SIZE CHART"].toLowerCase()] = XXL;
           sizes.push(obj);
         }
+        if (XXXL) {
+          let obj = { size: "3XL" };
+          obj[item["SIZE CHART"].toLowerCase()] = XXXL;
+          sizes.push(obj);
+        }
 
         delete item["SIZE CHART"];
         tables.push(item);
@@ -173,6 +179,7 @@ const ImportSizeTable = ({
         delete item.L;
         delete item.XL;
         delete item.XXL;
+        delete item.XXXL;
 
         if (XXS) {
           let obj = {};
@@ -214,6 +221,12 @@ const ImportSizeTable = ({
           let obj = {};
           obj[item["SIZE CHART"].toLowerCase()] = XXL;
           const sizesIndex = sizes.findIndex((item) => item.size === "XXL");
+          sizes[sizesIndex] = { ...sizes[sizesIndex], ...obj };
+        }
+        if (XXXL) {
+          let obj = {};
+          obj[item["SIZE CHART"].toLowerCase()] = XXXL;
+          const sizesIndex = sizes.findIndex((item) => item.size === "3XL");
           sizes[sizesIndex] = { ...sizes[sizesIndex], ...obj };
         }
 
@@ -266,15 +279,6 @@ const ImportSizeTable = ({
       />
       <ResourceList
         items={[
-          {
-            id: 0,
-            title: t("DashboardPage.24"),
-            subtitle: t("DashboardPage.25"),
-            job: "import table",
-            exportButton: true,
-            fileType: "csv",
-            img: "https://customerssizeandme.s3.eu-central-1.amazonaws.com/csv-file-format-extension.png",
-          },
           {
             id: 1,
             title: t("DashboardPage.26"),

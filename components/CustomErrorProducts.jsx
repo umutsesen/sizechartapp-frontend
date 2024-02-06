@@ -14,8 +14,16 @@ const CustomErrorProducts = ({
   toggleActive,
   products,
   t,
+  setSelectedItems,
+  selectedItems
 }) => {
-
+/*   const promotedBulkActions = [
+    {
+      content: 'Ürünleri Kaydet',
+      onAction: () => toggleActive(),
+    },
+  ];
+ */
   return (
    
       <Modal
@@ -33,6 +41,7 @@ const CustomErrorProducts = ({
                 }}
                 
                 items={products}
+         /*        promotedBulkActions={promotedBulkActions} */
                 renderItem={(item) => {
                   const { title, id, image } = item;
                   const media = (
