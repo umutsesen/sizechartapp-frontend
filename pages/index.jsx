@@ -20,7 +20,7 @@ import {
   SkeletonTabs,
   VerticalStack,
 } from "@shopify/polaris";
-import { SearchMinor } from "@shopify/polaris-icons";
+
 import ChartEdit from "../components/ChartEdit";
 import CustomSlidePanel from "../components/CustomSlidePanel";
 import {
@@ -213,7 +213,7 @@ const Tab3Page = ({ userInfo }) => {
                   autoComplete="off"
                   placeholder={t("DashboardPage.2")}
                   type="text"
-                  prefix={<Icon source={SearchMinor} color="base" />}
+                 /*  prefix={<Icon source={SearchMinor} color="base" />} */
                 />
 
                 <LegacyCard.Section>
@@ -246,7 +246,7 @@ const Tab3Page = ({ userInfo }) => {
   autoComplete="off"
   placeholder={t("DashboardPage.2")}
   type="text"
-  prefix={<Icon source={SearchMinor} color="base" />}
+/*   prefix={<Icon source={SearchMinor} color="base" />} */
   value={searchQuery}
   onChange={handleSearchChange}
 />
