@@ -377,7 +377,7 @@ const ChartEdit = ({
                 <span style={{ textTransform: "capitalize" }}>
                   {chart.gender.toLowerCase() === "man" 
                     ? t("SizechartEditPage.25")
-                    : t("SizechartEditPage.26")}{" "}
+                    : chart.gender.toLowerCase() === "unisex" ? "Unisex" : t("SizechartEditPage.26")}{" "}
                 </span>
               </SizeMeButton>
               <SizeMeButton  onClick={handleDeleteModalChange}>
